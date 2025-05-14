@@ -1,0 +1,2 @@
+# weather_forecasting_project-CD
+weather_forecasting_project helm manifest files

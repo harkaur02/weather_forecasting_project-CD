@@ -24,8 +24,8 @@ pipeline {
                                 
                                 # sed -i 's+tag:.*+tag:"$DOCKERTAG"+g' values.yaml
                                 # sed -i "s/^\s*tag:.*$/  tag: \"$DOCKERTAG\"/" values.yaml
-                                sed -i 's/^\\(\\s*tag:\\).*/\\1 "${BUILD_TAG}"/' values.yaml
-
+                                # sed -i 's/^\\(\\s*tag:\\).*/\\1 "${DOCKERTAG}"/' values.yaml
+                                
                                 echo "values.yaml file after update....."
                                 cat values.yaml
 

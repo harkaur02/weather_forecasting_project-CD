@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "helm-weather-forcasting-proj-CD.fullname" . }}-test-connection"
+  labels:
+    {{- include "helm-weather-forcasting-proj-CD.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "helm-weather-forcasting-proj-CD.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never

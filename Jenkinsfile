@@ -1,4 +1,4 @@
-pipeline {
+mpipeline {
     agent any
     environment {
         DOCKERTAG = "${BUILD_NUMBER}"
@@ -20,14 +20,14 @@ pipeline {
                                 git config user.name "harkaur02"
 
                                 echo "values.yaml file before update"
-                                cat values.yaml
+                                cat helm/values.yaml
                                 # sed -i 's/^\\(\\s*tag:\\).*/\\1 "${DOCKERTAG}"/' values.yaml
 
                                 
                                 echo "values.yaml file after update....."
-                                cat values.yaml
+                                cat helm/values.yaml
 
-                                git add values.yaml
+                                git add helm/values.yaml
                                 git commit -m "updated image tag to current $BUILD_NUMBER"
 
                                 git push https://$GIT_USERNAME:$GIT_PASSWORD@github.com/$GIT_USERNAME/$GIT_REPO_NAME HEAD:main

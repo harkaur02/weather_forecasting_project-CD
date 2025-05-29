@@ -20,12 +20,13 @@ mpipeline {
                                 git config user.name "harkaur02"
 
                                 echo "values.yaml file before update"
-                                cat helm/values.yaml
-                                # sed -i 's/^\\(\\s*tag:\\).*/\\1 "${DOCKERTAG}"/' values.yaml
+                                cd helm
+                                cat values.yaml
+                                sed -i 's/^\\(\\s*tag:\\).*/\\1 "${DOCKERTAG}"/' values.yaml
 
                                 
                                 echo "values.yaml file after update....."
-                                cat helm/values.yaml
+                                cat values.yaml
 
                                 git add helm/values.yaml
                                 git commit -m "updated image tag to current $BUILD_NUMBER"

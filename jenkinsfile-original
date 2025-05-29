@@ -1,4 +1,4 @@
-mpipeline {
+pipeline {
     agent any
     environment {
         DOCKERTAG = "${BUILD_NUMBER}"

@@ -28,7 +28,7 @@ pipeline {
                                 echo "values.yaml file after update....."
                                 cat values.yaml
 
-                                git add helm/values.yaml
+                                git add values.yaml
                                 git commit -m "updated image tag to current $BUILD_NUMBER"
 
                                 git push https://$GIT_USERNAME:$GIT_PASSWORD@github.com/$GIT_USERNAME/$GIT_REPO_NAME HEAD:main

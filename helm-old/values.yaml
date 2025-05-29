@@ -1,4 +1,4 @@
-# Default values for helm.
+# Default values for helm-weather-forcasting-proj-CD.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -10,8 +10,9 @@ image:
   repository: thethymca/weather_forecasting_project
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: latest
+  # Ovelatest
+  # ides  image tag whose default is the chart appVersion.
+  tag: "1"
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []

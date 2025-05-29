@@ -22,7 +22,7 @@ mpipeline {
                                 echo "values.yaml file before update"
                                 cd helm
                                 cat values.yaml
-                                sed -i 's/^\\(\\s*tag:\\).*/\\1 "${DOCKERTAG}"/' values.yaml
+                                # sed -i 's/^\\(\\s*tag:\\).*/\\1 "${DOCKERTAG}"/' values.yaml
 
                                 
                                 echo "values.yaml file after update....."

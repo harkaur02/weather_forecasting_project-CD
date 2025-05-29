@@ -15,15 +15,16 @@ pipeline {
                             usernameVariable: 'GIT_USERNAME',
                             passwordVariable: 'GIT_PASSWORD'
                         )]) {
-                            sh """
+                            sh '''
                                 git config user.email "harkaur02@gmail.com"
                                 git config user.name "harkaur02"
 
                                 echo "values.yaml file before update"
                                 cat values.yaml
                                 # sed -i 's/^\\(\\s*tag:\\).*/\\1 "${DOCKERTAG}"/' values.yaml
-                                sed -i 's/^\\(\\s*tag:\\).*/\\1 "${DOCKERTAG}"/' helm/values.yaml
+                                # sed -i 's/^\\(\\s*tag:\\).*/\\1 "${DOCKERTAG}"/' helm/values.yaml
                                 # sed -i "s/^\(\s*tag:\).*/\1 \"${DOCKERTAG}\"/" helm/values.yaml
+                                sed -i "s/^\\([[:space:]]*tag:\\).*/\\1 \\"${DOCKERTAG}\\"/" helm/values.yaml
 
                                 
                                 echo "values.yaml file after update....."
@@ -33,7 +34,7 @@ pipeline {
                                 git commit -m "updated image tag to current $BUILD_NUMBER"
 
                                 git push https://$GIT_USERNAME:$GIT_PASSWORD@github.com/$GIT_USERNAME/$GIT_REPO_NAME HEAD:main
-                            """
+                            '''
                         }
                     //}
                 }
